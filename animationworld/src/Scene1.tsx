@@ -8,7 +8,7 @@ function AnimationText() {
 
   useFrame((_, delta) => {
     if (!ref.current) return
-    ref.current.translateX( 2 * delta)
+    ref.current.position.x = 2 * delta
   })
 
   return (
@@ -35,7 +35,7 @@ export default function Scene1() {
     <Canvas camera={{ position: [0, 0, 10], fov: 50 }}>
       <ambientLight intensity={0.5} />
       <directionalLight position={[5, 5, 5]} />
-      <AnimationText />
+      <AnimationText/>
       <OrbitControls />
     </Canvas>
   )

@@ -12,11 +12,12 @@ function RotatingGroup() {
         o: useRef<Group>(null),
     }
 
-    useFrame((_, delta) => {
+    useFrame((state, _delta) => {
         Object.values(refs).forEach(ref => {
             if (!ref.current) return
-            ref.current.rotation.x += 1 * delta
-            ref.current.rotation.y += 0.5 * delta
+            // ref.current.position.z = Math.sin(state.clock.getElapsedTime()) * 2
+            // ref.current.position.y = Math.cos(state.clock.getElapsedTime()) * 2
+            ref.current.position.x += Math.sin(state.clock.getElapsedTime()) * 0.015
         })
     })
 
