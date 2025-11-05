@@ -38,11 +38,13 @@ function Ball({ position, size }: BallProps) {
 
 export default function BallScene() {
   return (
-    <Canvas camera={{ position: [0, 0, 10], fov: 50 }}>
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[5, 5, 5]} />
-      <Ball position={[0, 0, 0]} size={[1, 30, 30]} />
-      <OrbitControls />
-    </Canvas>
+    <>
+      <Canvas camera={{ position: [0, 0, 10], fov: 50 }}>
+        <ambientLight intensity={0.5} />
+        <directionalLight position={[5, 5, 5]} />
+        <Ball position={[0, 0, 0]} size={[1, 30, 30]} />
+        <OrbitControls />
+      </Canvas>
+    </>
   )
 }
