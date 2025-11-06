@@ -1,10 +1,105 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
+::-webkit-scrollbar {
+  width: 1rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+* {
   margin: 0;
   padding: 0;
-  background-color: black !important;
+}
+
+body {
+  background-color: rgb(43, 43, 43) !important;
+  overflow: hidden; /* Prevent body scroll when overlay is open */
 }
 
 div {
   height: 100vh;
-  width: 100vw;
+}
+
+.container {
+  position: fixed; /* Changed from default to fixed positioning */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Center the container */
+  max-width: 960px;
+  max-height: 80vh; /* Slightly reduced to ensure it fits on screen */
+  width: 90%; /* Responsive width */
+  margin: 0;
+  padding: 1rem;
+  color: #333;
+  border-radius: 2rem;
+  border: solid 1rem #222222;
+  overflow-y: scroll;
+  z-index: 500; /* Ensure it appears above the canvas */
+  background-color: rgba(49, 49, 49, 0.95); /* Semi-transparent background */
+  backdrop-filter: blur(10px); /* Optional: adds a blur effect to background */
+}
+
+.container p, .container h1 {
+  color: white;
+  padding: 1rem;
+}
+
+.orbitron-futures {
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.container a {
+  text-decoration: none;
+  color: #60a5fa; /* Added a link color for better visibility */
+}
+
+.container a:hover {
+  text-decoration: underline;
+}
+
+.overlay-hint-text {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  height: fit-content;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 18px;
+  pointer-events: none;
+  user-select: none;
+}
+
+.close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.close::before {
+  content: '×';
+  display: block;
 }

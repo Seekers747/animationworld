@@ -2,6 +2,7 @@ import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import { useRef, useState } from 'react'
 import { Mesh } from 'three'
+import { useGLTF } from '@react-three/drei'
 
 interface BallProps {
   position: [number, number, number]
@@ -36,6 +37,11 @@ function Ball({ position, size }: BallProps) {
   )
 }
 
+function Model() {
+  const { scene } = useGLTF('https://models.readyplayer.me/64bfa15f0e72c63d7c3934a6.glb');
+  return <primitive object={scene} scale={2} position={[3, 0, 0]} />
+}
+
 export default function BallScene() {
   return (
     <>
@@ -44,6 +50,7 @@ export default function BallScene() {
         <directionalLight position={[5, 5, 5]} />
         <Ball position={[0, 0, 0]} size={[1, 30, 30]} />
         <OrbitControls />
+        <Model/>
       </Canvas>
     </>
   )

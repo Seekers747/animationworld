@@ -1,14 +1,10 @@
 import './App.css'
-import Scene from './Scene'
-import Scene1 from './Scene1'
-import BallScene from './BallScene'
+import UniverseScene from './Universe'
 
 function App() {
   return (
     <div>
-      {/* <Scene /> */}
-      {/* <Scene1 /> */}
-      <BallScene />
+      <UniverseScene/>
     </div>
   )
 }

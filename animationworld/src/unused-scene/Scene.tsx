@@ -93,7 +93,7 @@ function RotatingGroup() {
     )
 }
 
- export default function Scene1() {
+export default function Scene1() {
     return (
         <Canvas camera={{ position: [20, 5, -10], fov: 75 }}>
             <ambientLight intensity={0.5} />
